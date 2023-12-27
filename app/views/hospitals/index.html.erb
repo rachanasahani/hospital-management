@@ -1,0 +1,38 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Hospitals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hospital Name </th>
+      <th>Address</th>
+      <th>Contact</th>
+      <th>Email</th>
+      <%# <th Colspan="3">Action</th> %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @hospitals.each do |hospital| %>
+    <tr>
+      <td><%= link_to "#{hospital.name}", hospital %>
+      <td><%= hospital.address %></td>
+      <td><%= hospital.contact %></td>
+      <td><%= hospital.email %></td>
+      <td><%= link_to "Departments",  hospital_departments_path(hospital) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+<%# <div id="hospitals"> %>
+  <%# @hospitals.each do |hospital| %>
+    <%#= render hospital %>
+    <%# <p> %>
+      <%#= link_to "Show this hospital", hospital %>
+    <%# </p> %>
+  <%# end %>
+<%# </div> %>
+
+<%= link_to "New hospital", new_hospital_path %>
